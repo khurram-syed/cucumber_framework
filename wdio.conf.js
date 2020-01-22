@@ -8,7 +8,7 @@ const reportSufix = process.env.BUILD_NUMBER || datetime;
 
 
 exports.config = {
-    //seleniumArgs:browserSettings,
+    seleniumArgs:browserSettings,
     seleniumInstallArgs: browserSettings,
     //
     // ==================
@@ -273,17 +273,17 @@ exports.config = {
      * Runs after a Cucumber scenario
      * @param {Object} scenario scenario details
      */
-     afterScenario: function (uri,feature,scenario,result,sourceLocation) {
-        // console.log(`execute afterStep( uri - ${uri}; feature - ${feature}; scenario - ${scenario}; result - ${result}; ]
-        //           sourceLocation - ${sourceLocation})`)
-     },
+    //  afterScenario: function (uri,feature,scenario,result,sourceLocation) {
+    //     // console.log(`execute afterStep( uri - ${uri}; feature - ${feature}; scenario - ${scenario}; result - ${result}; ]
+    //     //           sourceLocation - ${sourceLocation})`)
+    //  },
     /**
      * Runs after a Cucumber feature
      * @param {Object} feature feature details
      */
-    afterFeature: function (feature) {
-        this.reporterOptions.htmlReporter.customData.data.push({'label': 'Execution End Time', 'value': info.getNewFormattedDateTime()})
-    },
+    // afterFeature: function (feature) {
+    //     this.reporterOptions.htmlReporter.customData.data.push({'label': 'Execution End Time', 'value': info.getNewFormattedDateTime()})
+    // },
     
     /**
      * Runs after a WebdriverIO command gets executed
@@ -300,26 +300,26 @@ exports.config = {
      * @param {Number} result 0 - test pass, 1 - test fail
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that ran
-     */
-    after: function (result, capabilities, specs) {
-        this.reporterOptions.htmlReporter.customData.data.push(   {label: 'Execution End Time', value: info.getNewFormattedDateTime()})
-    },
+    //  */
+    // after: function (result, capabilities, specs) {
+    //     this.reporterOptions.htmlReporter.customData.data.push(   {label: 'Execution End Time', value: info.getNewFormattedDateTime()})
+    // },
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that ran
      */
-    afterSession: function (config, capabilities, specs) {
-        this.reporterOptions.htmlReporter.customData.data.push(   {label: 'Execution End Time', value: info.getNewFormattedDateTime()})
-    },
+    // afterSession: function (config, capabilities, specs) {
+    //     this.reporterOptions.htmlReporter.customData.data.push(   {label: 'Execution End Time', value: info.getNewFormattedDateTime()})
+    // },
     /**
      * Gets executed after all workers got shut down and the process is about to exit.
      * @param {Object} exitCode 0 - success, 1 - fail
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-     onComplete: function(exitCode, config, capabilities) {
-         this.reporterOptions.htmlReporter.customData.data.push(   {label: 'Execution End Time', value: info.getNewFormattedDateTime()})
-     }
+    //  onComplete: function(exitCode, config, capabilities) {
+    //      this.reporterOptions.htmlReporter.customData.data.push(   {label: 'Execution End Time', value: info.getNewFormattedDateTime()})
+    //  }
 }
